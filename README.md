@@ -1,4 +1,4 @@
-##Nombre: Juliana Torres
+## Nombre: Juliana Torres
 
-##Imagen grafos
+## Imagen grafos
 ![alt text](image.png)
