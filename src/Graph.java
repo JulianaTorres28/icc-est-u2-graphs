@@ -15,14 +15,21 @@ public class Graph {
 
     public void addEdge(Node src, Node dest) {
         src.addNeighbor(dest);
-        dest.addNeighbor(src); // Si es grafo no dirigido
+        dest.addNeighbor(src); 
     }
 
     public void printGraph() {
-        for (Node node : nodes) {
-            System.out.print("Node " + node.getValue() + ": ");
-            for (Node neighbor : node.getNeighbors()) {
-                System.out.print(neighbor.getValue() + " ");
+        // Ordena nodos por valor
+        List<Node> sortedNodes = new ArrayList<>(nodes);
+        sortedNodes.sort(Comparator.comparingInt(Node::getValue));
+
+        for (Node node : sortedNodes) {
+            System.out.print("Vertex " + node.getValue() + ":");
+            // Ordena vecinos
+            List<Node> sortedNeighbors = new ArrayList<>(node.getNeighbors());
+            sortedNeighbors.sort(Comparator.comparingInt(Node::getValue));
+            for (Node neighbor : sortedNeighbors) {
+                System.out.print(" -> " + neighbor.getValue());
             }
             System.out.println();
         }
